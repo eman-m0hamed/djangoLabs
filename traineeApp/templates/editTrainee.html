@@ -1,0 +1,27 @@
+{% extends 'parent.html' %}
+{% block title %}
+  Edit Trainee
+{% endblock title %}
+
+
+{% block pageContent %}
+  <form action="{% url 'editTrainee' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="traineeName" class="form-label">Trainee Name</label>
+      <input type="text" class="form-control" id="traineeName" name="traineeName" placeholder="Please Enter Trainee Name" value="{{trainee.name}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="traineeEmail" class="form-label">Trainee Email</label>
+      <input type="email" class="form-control" id="traineeEmail" name="traineeEmail" placeholder="Please Enter Trainee Email" value="{{trainee.email}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="traineeClass" class="form-label">Trainee Password</label>
+      <input type="text" class="form-control" id="traineeClass" name="traineeClass" placeholder="Please Enter Trainee Class" value="{{trainee.class}}"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+{% endblock pageContent %}

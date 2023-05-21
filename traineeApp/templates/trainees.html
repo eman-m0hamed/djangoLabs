@@ -1,0 +1,33 @@
+{% extends 'parent.html' %}
+{% block title %}
+  Trainees
+{% endblock title %}
+
+
+{% block pageContent %}
+  <table class="table table-striped texet-center">
+    <thead>
+    <tr  class="text-center">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Class</th>
+      <th>Registered Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for trainee in trainees %}
+      <tr  class="text-center">
+        <th>{{trainee.name}}</th>
+        <th>{{trainee.email}}</th>
+        <th>{{trainee.class}}</th>
+        <th>{{trainee.created_at}}</th>
+        <th>
+          <a href="{% url 'editTrainee' trainee.id %}" class="btn btn-info me-3">Edit</a>
+          <a href="{% url 'deleteTrainee' trainee.id %}" class="btn btn-danger">Delete</a>
+        </th>
+      </tr>  
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock pageContent %}

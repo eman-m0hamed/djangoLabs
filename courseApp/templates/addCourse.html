@@ -1,0 +1,19 @@
+{% extends 'parent.html' %}
+{% block title %}
+  Add Course
+{% endblock title %}
+
+{% block pageContent %}
+  <form action="{% url 'addCourse' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="courseTitle" class="form-label">Course Title</label>
+      <input type="text" class="form-control" id="courseTitle" name="courseTitle" placeholder="Please Enter Course Title" required>
+    </div>
+    <div class="mb-3">
+      <label for="courseDescription" class="form-label">Course Description</label>
+      <textarea class="form-control" id="courseDescription" name="courseDescription" rows="5" placeholder="Please Enter Course Description" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+{% endblock pageContent %}

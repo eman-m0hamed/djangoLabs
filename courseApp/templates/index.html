@@ -1,0 +1,34 @@
+{% extends 'parent.html' %}
+{% block title %}
+  Courses
+{% endblock title %}
+
+
+{% block pageContent %}
+  <table class="table table-striped texet-center">
+    <thead>
+    <tr class="text-center">
+      <th>Title</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th>Last Update Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+      <tr  class="text-center">
+        <th>{{course.title}}</th>
+        <th>{{course.description}}</th>
+        <th>{{course.created_at}}</th>
+        <th>{{course.updated_at}}</th>
+        <th>
+          <a href="{% url 'editCourse' course.id %}" class="btn btn-info me-3">Edit</a>
+          <a href="{% url 'deleteCourse' course.id %}" class="btn btn-danger">Delete</a>
+        </th>
+      </tr>
+      {% endfor %}
+  
+    </tbody>
+  </table>
+{% endblock pageContent %}

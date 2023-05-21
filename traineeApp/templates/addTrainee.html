@@ -1,0 +1,30 @@
+{% extends 'parent.html' %}
+{% block title %}
+  Add Trainee
+{% endblock title %}
+
+
+{% block pageContent %}
+  <form action="{% url 'addTrainee' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="traineeName" class="form-label">Trainee Name</label>
+      <input type="text" class="form-control" id="traineeName" name="traineeName" placeholder="Please Enter Trainee Name">
+    </div>
+
+    <div class="mb-3">
+      <label for="traineeEmail" class="form-label">Trainee Email</label>
+      <input type="email" class="form-control" id="traineeEmail" name="traineeEmail" placeholder="Please Enter Trainee Email"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="traineeClass" class="form-label">Trainee Password</label>
+      <input type="text" class="form-control" id="traineeClass" name="traineeClass" placeholder="Please Enter Trainee Class"/>
+    </div>
+    
+    <input type="submit" value="{{button}}" class="btn btn-primary" name="button">
+    {% comment %} <button type="submit" class="btn btn-primary" name="button" >{{button}} {% endcomment %}
+
+    </button>
+  </form>
+{% endblock pageContent %}
