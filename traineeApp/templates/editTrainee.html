@@ -5,7 +5,7 @@
 
 
 {% block pageContent %}
-  <form action="{% url 'editTrainee' %}" method="POST">
+  <form action="{% url 'editTrainee' trainee.id %}" method="POST">
     {% csrf_token %}
     <div class="mb-3">
       <label for="traineeName" class="form-label">Trainee Name</label>
@@ -18,9 +18,13 @@
     </div>
 
     <div class="mb-3">
-      <label for="traineeClass" class="form-label">Trainee Password</label>
-      <input type="text" class="form-control" id="traineeClass" name="traineeClass" placeholder="Please Enter Trainee Class" value="{{trainee.class}}"/>
-    </div>
+      <label for="traineeClass" class="form-label">Trainee Courses</label>
+      <select name="courses" id="courses" value={{trainee.course}}>
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.title}}</option>
+        {% endfor %}
+      </select>
+      </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
   </form>

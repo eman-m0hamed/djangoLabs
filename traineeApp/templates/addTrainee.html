@@ -18,8 +18,14 @@
     </div>
 
     <div class="mb-3">
-      <label for="traineeClass" class="form-label">Trainee Password</label>
-      <input type="text" class="form-control" id="traineeClass" name="traineeClass" placeholder="Please Enter Trainee Class"/>
+      <label for="traineeClass" class="form-label">Trainee Course</label>
+      <select name="courses" id="courses" value={{trainee.course}}>
+        <option value="0">please choose course</option>
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.title}}</option>
+        {% endfor %}
+      </select>
+      {% comment %} <input type="text" class="form-control" id="traineeClass" name="traineeClass" placeholder="Please Enter Trainee Class"/> {% endcomment %}
     </div>
     
     <input type="submit" value="{{button}}" class="btn btn-primary" name="button">

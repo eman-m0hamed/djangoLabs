@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">My App</a>
+        <a class="navbar-brand" href="#">Welcome <span style="color:blue">{{request.session.userName}}</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,8 +40,13 @@
                   </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logOut' %}">LogOut</a>
+                {% if request.session.userName %}
+                  <a class="nav-link" href="{% url 'logOut' %}">LogOut</a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                {% endif %}
               </li>
+
 
           </ul>
         </div>

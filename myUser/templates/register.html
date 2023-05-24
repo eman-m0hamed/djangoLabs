@@ -14,7 +14,8 @@
       <h2 class="mt-5 mb-4"> Welcome In Our Website </h2>
       <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
-        <div class="mb-3">
+        {{myForm}}
+        {% comment %} <div class="mb-3">
           <label for="Name" class="form-label"> Username</label>
           <input type="text" class="form-control" id="Name" name="Name" placeholder="Please Enter Your Username">
         </div>
@@ -27,7 +28,7 @@
         <div class="mb-3">
           <label for="Password" class="form-label"> Password</label>
           <input type="text" class="form-control" id="Password" name="Password" placeholder="Please Enter Your Password"/>
-        </div>
+        </div> {% endcomment %}
         
         <input type="submit" value="Register" class="btn btn-primary" name="button">
 
